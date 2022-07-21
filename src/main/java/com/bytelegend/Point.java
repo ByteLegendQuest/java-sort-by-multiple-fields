@@ -2,7 +2,6 @@ package com.bytelegend;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Point {
@@ -56,29 +55,17 @@ public class Point {
      * list: `(-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)`. Hint: you can use `Collections.sort()` method.
      */
     public static List<Point> sort(List<Point> points) {
-        Collections.sort(points, (p1, p2) -> {
-            if (p1.getX() == p2.getX()) {
-                return valueTest(p1.getY(), p2.getY());
-            }
-            return valueTest(p1.getX(), p2.getX());
-        });
         return points;
-    }
-
-    public static int valueTest(int a, int b) {
-        long testValue = (long) a - (long) b;
-        if (testValue > Integer.MAX_VALUE) {
-            return 1;
-        } else if (testValue < Integer.MIN_VALUE) {
-            return -1;
-        } else return 0;
     }
 
     public static void main(String[] args) throws IOException {
         List<Point> points =
                 Arrays.asList(
-                        new Point(1234567890, -1234567890),
-                        new Point(-1234567890, 1234567890));
+                        new Point(2, 0),
+                        new Point(-1, 1),
+                        new Point(1, -1),
+                        new Point(2, 1),
+                        new Point(2, -1));
         System.out.println(Point.sort(points));
     }
 }
