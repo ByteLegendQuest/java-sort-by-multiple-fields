@@ -3,7 +3,6 @@ package com.bytelegend;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Comparator;
 
 public class Point {
     private final int x;
@@ -56,20 +55,6 @@ public class Point {
      * list: `(-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)`. Hint: you can use `Collections.sort()` method.
      */
     public static List<Point> sort(List<Point> points) {
-        points.sort(new Comparator<Point>() {
-            @Override
-            public int compare(Point o1, Point o2) {
-                if (o1.getX() < o2.getX())
-                    return -1;
-                else if (o1.getX() > o2.getX())
-                    return 1;
-                else {
-                    if (o1.getY() < o2.getY()) return -1;
-                    else if (o1.getY() > o2.getY()) return 1;
-                    else return 0;
-                }
-            }
-        });
         return points;
     }
 
