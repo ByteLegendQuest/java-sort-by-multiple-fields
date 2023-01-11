@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class Point implements Comparable {
+public class Point {
     private final int x;
     private final int y;
 
@@ -50,18 +50,11 @@ public class Point implements Comparable {
         return String.format("(%d,%d)", x, y);
     }
 
-    @Override
-    public int compareTo(Object o) {
-        Point p = (Point) o;
-        return this.equals(p) ? 0 : ((this.x > 0 && p.getX() < 0) ? 1 : (this.x < 0 && p.getX() > 0 ? -1 : (this.x == p.getX() ? ((this.y > 0 && p.getY() < 0) ? 1 : ((this.y < 0 && p.getY() > 0) ? -1 : this.y - p.getY())) : this.x - p.getX())));
-    }
-
     /**
      * Sort a list of `Point` in ascending order of `x` first and then `y`. For example, a sorted
      * list: `(-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)`. Hint: you can use `Collections.sort()` method.
      */
     public static List<Point> sort(List<Point> points) {
-        points.sort(null);
         return points;
     }
 
