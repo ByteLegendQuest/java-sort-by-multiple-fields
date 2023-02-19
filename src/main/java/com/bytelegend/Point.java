@@ -2,6 +2,8 @@ package com.bytelegend;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Point {
@@ -55,6 +57,12 @@ public class Point {
      * list: `(-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)`. Hint: you can use `Collections.sort()` method.
      */
     public static List<Point> sort(List<Point> points) {
+        Collections.sort(points, new Comparator<Point>() {
+            @Override
+            public int compare(Point o1, Point o2) {
+                return o1.getX() - o2.getX() != 0 ? o1.getX() - o2.getX() : o1.getY() - o2.getY();
+            }
+        });
         return points;
     }
 
@@ -69,3 +77,4 @@ public class Point {
         System.out.println(Point.sort(points));
     }
 }
+
