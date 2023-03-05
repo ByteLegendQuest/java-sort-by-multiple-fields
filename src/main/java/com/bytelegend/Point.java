@@ -55,6 +55,12 @@ public class Point {
      * list: `(-1, 1) (1, -1) (2, -1) (2, 0) (2, 1)`. Hint: you can use `Collections.sort()` method.
      */
     public static List<Point> sort(List<Point> points) {
+        points.sort((p1, p2) -> {
+            if (p1.getX() == p2.getX()) {
+                return Integer.compare(p1.getY(), p2.getY());
+            }
+            return Integer.compare(p1.getX(), p2.getX());
+        });
         return points;
     }
 
